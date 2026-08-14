@@ -223,7 +223,7 @@ function getChannelFromRadioFrequency(radio, freq)
         return int((freq - 902.0) * 2);
     }
     if (radio.band === "3ghz") {
-        return freq - 2000;
+        return (freq - 3000) / 5;
     }
     if (freq < 256) {
         return freq;
@@ -239,9 +239,6 @@ function getChannelFromRadioFrequency(radio, freq)
     }
     if (freq < 2484) {
         return (freq - 2407) / 5;
-    }
-    if (freq < 5000) {
-        return (freq - 3000) / 5;
     }
     if (freq < 6000) {
         return (freq - 5000) / 5;
